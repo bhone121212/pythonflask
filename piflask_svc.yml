@@ -2,21 +2,21 @@
 apiVersion: apps/v1 #version of the API to use
 kind: Deployment #What kind of object we're deploying
 metadata: #information about our object we're deploying
-  name: pytflk-deployment #Name of the deployment
+  name: piflask-deployment #Name of the deployment
   labels: #A tag on the deployments created
-    app: pytflk
+    app: piflask
 spec: #specifications for our object
   replicas: 2 #The number of pods that should always be running
   selector: #which pods the replica set should be responsible for
     matchLabels:
-      app: pytflk #any pods with labels matching this I'm responsible for.
+      app: piflask #any pods with labels matching this I'm responsible for.
   template: #The pod template that gets deployed
     metadata:
       labels: #A tag on the replica sets created
-        app: pytflk
+        app: piflask
     spec:
       containers:
-      - name: nginx-container #the name of the container within the pod
+      - name: piflask-container #the name of the container within the pod
         image: yenaing/python_flask #which container image should be pulled
         ports:
         - containerPort: 5000 #the port of the container within the pod
@@ -24,14 +24,14 @@ spec: #specifications for our object
 apiVersion: v1 #version of the API to use
 kind: Service #What kind of object we're deploying
 metadata: #information about our object we're deploying
-  name: pytflk #Name of the service
+  name: piflask #Name of the service
 spec: #specifications for our object
   type: NodePort #Ignore for now discussed in a future post
   ports: #Ignore for now discussed in a future post
   - name: http
     port: 5000
     targetPort: 5000
-    nodePort: 30002
+    nodePort: 30003
     protocol: TCP
   selector: #Label selector used to identify pods
-    app: pytflk
+    app: piflask
