@@ -4,7 +4,7 @@ metadata:
   # any PVC name
   name: piflask-pvc
 spec:
-  storageClassName: manual
+  storageClassName: piflask001
   accessModes:
   # ReadWriteMany(RW from multi nodes), ReadWriteOnce(RW from a node), ReadOnlyMany(R from multi nodes)
     - ReadWriteMany
