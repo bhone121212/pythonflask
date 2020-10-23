@@ -4,7 +4,7 @@ metadata:
   # any PV name
   name: piflask-pv
 spec:
-  storageClassName: flask021
+  storageClassName: piflask021
   capacity:
     # storage size
     storage: 10Gi
