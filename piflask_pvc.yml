@@ -4,7 +4,7 @@ metadata:
   # any PVC name
   name: piflask-pvc
 spec:
-  storageClassName: piflask001
+  storageClassName: flask021
   accessModes:
   # ReadWriteMany(RW from multi nodes), ReadWriteOnce(RW from a node), ReadOnlyMany(R from multi nodes)
     - ReadWriteMany
@@ -12,4 +12,3 @@ spec:
     requests:
        # storage size to use
       storage: 5Gi
-
