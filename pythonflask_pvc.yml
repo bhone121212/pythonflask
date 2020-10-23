@@ -2,9 +2,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   # any PVC name
-  name: piflask-pvc
+  name: pythonflask-pvc
 spec:
-  storageClassName: piflask021
+  storageClassName: pythonflask027
   accessModes:
   # ReadWriteMany(RW from multi nodes), ReadWriteOnce(RW from a node), ReadOnlyMany(R from multi nodes)
     - ReadWriteMany
