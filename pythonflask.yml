@@ -1,22 +1,21 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: piflask-app
+  name: pythonflask-app
   labels:
-    app: piflask
+    app: pythonflask
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: piflask
+      app: pythonflask
   template:
     metadata:
       labels:
-        app: piflask
+        app: pythonflask
     spec:
       containers:
-      - name: piflask
+      - name: pythonflask
         image: yenaing/python_flask
         ports:
         - containerPort: 5000
@@ -29,4 +28,4 @@ spec:
         - name: hostvol
           persistentVolumeClaim:
             # PVC name you created
-            claimName: piflask-pvc
+            claimName: pythonflask-pvc
