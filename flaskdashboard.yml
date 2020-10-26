@@ -19,5 +19,5 @@ spec:
         - name: flaskdashapp
           image:  waelmas/flaskdashboard:latest
           ports:
-            - containerPort: 5000
+            - containerPort: 5005
           imagePullPolicy: Always
