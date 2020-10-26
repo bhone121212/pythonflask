@@ -1,31 +1,24 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pythonflask-app
+  name: tasksapp
   labels:
-    app: pythonflask
+    app: tasksapp
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: pythonflask
+      app: tasksapp
   template:
     metadata:
       labels:
-        app: pythonflask
+        app: tasksapp
     spec:
       containers:
-      - name: pythonflask
-        image: yenaing/python_flask
-        ports:
-        - containerPort: 5000
-        securityContext:
-          privileged: true
-        volumeMounts:
-        - name: hostvol
-          mountPath: /opt
-      volumes:
-        - name: hostvol
-          persistentVolumeClaim:
-            # PVC name you created
-            claimName: pythonflask-pvc
+        - name: tasksapp
+          image: varunkumarg/tasksapp-python:1.0.0
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
+
