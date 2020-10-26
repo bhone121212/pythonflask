@@ -1,1 +1,23 @@
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskdashapp
+  labels:
+    app: flaskdashapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flaskdashapp
+  template:
+    metadata:
+      labels:
+        app: flaskdashapp
+    spec:
+      containers:
+        - name: flaskdashapp
+          image:  waelmas/flaskdashboard:latest
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
